@@ -14,6 +14,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
@@ -54,7 +55,7 @@ class ListViewModel @Inject constructor(
                 }
                 .collectLatest {
                    Log.d("viewmode","$it")
-                    _dataState.value = it
+                    _dataState.emit(it)
                 }
         }
     }
@@ -75,7 +76,7 @@ class ListViewModel @Inject constructor(
 
                 }
                 .collect{
-                    _dataStateAfterSearch.value = it
+                    _dataStateAfterSearch.emit(it)
                 }
         }
     }
