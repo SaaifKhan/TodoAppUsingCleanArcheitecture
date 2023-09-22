@@ -6,6 +6,10 @@
         <variable
             name="viewmodel"
             type="com.example.presenter.ui.InsertViewModel" />
+
+        <variable
+            name="model"
+            type="com.example.domain.model.ToDoData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,6 +27,7 @@
             android:background="@android:color/transparent"
             android:ems="10"
             android:hint="title"
+            android:text="@={model.title}"
             android:inputType="textPersonName"
             android:paddingStart="24dp"
             android:paddingEnd="24dp"
@@ -52,6 +57,7 @@
             android:layout_marginTop="8dp"
             android:background="@android:color/transparent"
             android:ems="10"
+            android:text="@={model.description}"
             android:gravity="top|start"
             android:hint="description"
             android:inputType="textMultiLine"

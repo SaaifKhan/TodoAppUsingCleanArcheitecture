@@ -11,9 +11,7 @@ class InsertDataUseCase @Inject constructor(
 ) : UseCase<Unit, InsertDataUseCase.Params>() {
 
     override suspend fun run(params: Params): Flow<Unit> {
-        // Insert data into the Room database using the repository
         repository.insertData(params.toDoData)
-        // Return a flow with a result indicating success
         return flowOf(Unit)
     }
 
