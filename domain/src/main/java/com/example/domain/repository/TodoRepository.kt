@@ -9,6 +9,7 @@ interface TodoRepository {
 
     suspend fun insertData(toDoData: ToDoData)
 
-    @Query("SELECT * FROM todo_table ORDER BY id ASC")
     suspend fun getAllData():Flow<List<ToDoData>>
+
+    suspend fun search(query:String) : Flow<List<ToDoData>>
 }

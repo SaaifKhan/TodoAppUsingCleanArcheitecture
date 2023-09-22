@@ -11,6 +11,7 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
+import androidx.navigation.fragment.findNavController
 import com.example.domain.model.ToDoData
 import com.example.presenter.R
 import com.example.presenter.databinding.FragmentInsertBinding
@@ -80,6 +81,8 @@ class InsertFragment : Fragment(R.layout.fragment_insert) {
 
             viewModel.insertData()
             Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_SHORT).show()
+
+            findNavController().navigate(R.id.action_insertFragment_to_listFragment)
             // Navigate Back
 //            findNavController().navigate(R.id.action_addFragment_to_listFragment)
         } else {

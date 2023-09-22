@@ -2,10 +2,27 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigation_graph.xml"
-    app:startDestination="@id/insertFragment">
+    app:startDestination="@id/listFragment">
 
     <fragment
         android:id="@+id/insertFragment"
         android:name="com.example.presenter.ui.InsertFragment"
-        android:label="InsertFragment" />
+        android:label="InsertFragment" >
+        <action
+            android:id="@+id/action_insertFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.presenter.ui.ListFragment"
+        android:label="ListFragment" >
+        <action
+            android:id="@+id/action_listFragment_to_insertFragment"
+            app:destination="@id/insertFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            />
+    </fragment>
 </navigation>
